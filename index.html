@@ -271,12 +271,140 @@
         .contact-item a:hover { color: var(--link-color); }
 
         /* СЕКЦИЯ "ОТЗЫВЫ" */
-        .reviews-card { background-color: var(--card-bg); padding: 3rem; border: 1px solid var(--border-color); border-radius: 16px; text-align: center; }
-        .stars-container { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
-        .stars-container svg { width: 30px; height: 30px; color: var(--star-color); opacity: 0; transform: scale(0.5); }
-        .reviews-text { font-size: 1.2rem; margin-bottom: 2rem; }
-        .reviews-text strong { color: var(--accent-color); }
-        .avito-link { color: var(--link-color); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+        .reviews-card { 
+            background-color: var(--card-bg); 
+            padding: 3rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem; /* Отступ до ссылки Авито */
+        }
+
+        .reviews-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            width: 100%;
+            max-width: 700px;
+            flex-wrap: wrap; /* Для мобильных экранов */
+        }
+
+        /* Левая часть - Итог */
+        .reviews-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .average-rating {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+
+        .summary-stars { 
+            display: flex; 
+            gap: 0.3rem; 
+            margin-bottom: 0.5rem; 
+        }
+
+        .summary-stars .star {
+            width: 24px;
+            height: 24px;
+            color: var(--star-color);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .total-reviews {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            font-weight: 400;
+        }
+
+        /* Правая часть - Графики */
+        .reviews-bars {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 280px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-stars {
+            display: flex;
+            gap: 0.15rem;
+            width: 75px; /* Фиксированная ширина для ровного края шкал */
+            justify-content: flex-end;
+        }
+
+        .bar-stars .star {
+            width: 14px;
+            height: 14px;
+            color: var(--star-color);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .bar-stars .star.empty {
+            color: var(--border-color); /* Серые звёзды */
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: var(--secondary-text); /* Заполненная часть шкалы */
+            border-radius: 4px;
+        }
+
+        .bar-count {
+            width: 20px;
+            text-align: right;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .avito-link { 
+            color: var(--link-color); 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            transition: opacity 0.3s ease;
+        }
+        
+        .avito-link:hover {
+            opacity: 0.8;
+        }
+
+        @media screen and (max-width: 600px) {
+            .reviews-layout {
+                gap: 2rem;
+                flex-direction: column;
+            }
+            .bar-stars {
+                width: auto;
+            }
+        }
+
 
         /* ПОДВАЛ */
         footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--border-color); color: var(--secondary-text); }
@@ -388,8 +516,6 @@
         transform: scale(0.9) rotate(360deg) translate(-30px, 30px);
     }
 }
-
-
 
     </style>
 </head>
@@ -639,23 +765,101 @@
     </div>
 </section>
 
-
-
-        <section id="reviews" class="section">
-            <div class="container">
-                <div class="reviews-card">
-                    <div class="stars-container">
+<section id="reviews" class="section">
+    <div class="container">
+        <div class="reviews-card">
+            
+            <div class="reviews-layout">
+                <!-- Левая часть: Общий рейтинг -->
+                <div class="reviews-summary">
+                    <div class="average-rating">4,9</div>
+                    <div class="stars-container summary-stars">
                         <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
                         <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
                         <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
                         <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
                         <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
                     </div>
-                    <p class="reviews-text"><strong>59 отзывов</strong> и средняя оценка <strong>4.9</strong></p>
-                    <a href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/pechat_dokumentov_a4_7253460020?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJtR0FXSDdtOUVLMWhUTG1OIjt9k2T1-D8AAAA" target="_blank" class="avito-link">Реальные отзывы на Авито</a>
+                    <div class="total-reviews">59 отзывов</div>
+                </div>
+
+                <!-- Правая часть: Шкалы оценок -->
+                <div class="reviews-bars">
+                    
+                    <!-- 5 звезд -->
+                    <div class="bar-row">
+                        <div class="bar-stars">
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 96.6%;"></div></div>
+                        <div class="bar-count">57</div>
+                    </div>
+
+                    <!-- 4 звезды -->
+                    <div class="bar-row">
+                        <div class="bar-stars">
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 2%;"></div></div>
+                        <div class="bar-count">1</div>
+                    </div>
+
+                    <!-- 3 звезды -->
+                    <div class="bar-row">
+                        <div class="bar-stars">
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                        <div class="bar-count">0</div>
+                    </div>
+
+                    <!-- 2 звезды -->
+                    <div class="bar-row">
+                        <div class="bar-stars">
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                        <div class="bar-count">0</div>
+                    </div>
+
+                    <!-- 1 звезда -->
+                    <div class="bar-row">
+                        <div class="bar-stars">
+                            <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+                        </div>
+                        <div class="bar-track"><div class="bar-fill" style="width: 2%;"></div></div>
+                        <div class="bar-count">1</div>
+                    </div>
+
                 </div>
             </div>
-        </section>
+
+            <!-- Ссылка на Авито под графиками -->
+            <a href="https://www.avito.ru/sankt-peterburg/predlozheniya_uslug/pechat_dokumentov_a4_7253460020?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJtR0FXSDdtOUVLMWhUTG1OIjt9k2T1-D8AAAA" target="_blank" class="avito-link">Открыть реальные отзывы на Авито или оставить свой</a>
+
+        </div>
+    </div>
+</section>
 
     </main>
 
