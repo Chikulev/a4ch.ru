@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a4ch.ru | Срочная печать формата А4 в Петроградском районе</title>
+    <title>a4ch.ru | Срочная Ч/б печать формата А4 в Петроградском районе</title>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.icon-bg{fill:%23000}.icon-fg{fill:%23fff}.icon-stroke{stroke:%23000}@media (prefers-color-scheme:dark){.icon-bg{fill:%23fff}.icon-fg{fill:%23000}.icon-stroke{stroke:%23fff}}%3C/style%3E%3Cg%3E%3Cpath class='icon-bg' d='M20,10 C17.79,10 16,11.79 16,14 L16,86 C16,88.21 17.79,90 20,90 L80,90 C82.21,90 84,88.21 84,86 L84,34 L66,10 L20,10 Z'/%3E%3Cpath class='icon-stroke' d='M62,10 L62,34 L84,34' fill='none' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Ctext class='icon-fg' x='13' y='82' font-family='Inter,sans-serif' font-size='48' font-weight='900'%3EA4%3C/text%3E%3C/g%3E%3C/svg%3E">
 
@@ -331,9 +331,95 @@
     }
 }
 
+/* Фиксированный контейнер на весь экран для фоновых кругов */
+.ambient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Обертки отвечают за начальную позицию на экране */
+.blob-wrapper {
+    position: absolute;
+    transition: transform 0.1s ease-out; /* Плавность для JS-скролла */
+}
+
+.wrapper-1 { top: -10%; left: -10%; }
+.wrapper-2 { top: 40%; right: -20%; }
+.wrapper-3 { bottom: -15%; left: 15%; }
+
+/* Сами круги отвечают за цвет, размытие и "дыхание" */
+.blob {
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+/* Индивидуальные настройки: смещенный центр делает вращение "орбитальным" */
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: #ff7eb3;
+    transform-origin: 45% 55%; 
+    animation: breatheAndSpin 25s infinite ease-in-out alternate;
+}
+
+.blob-2 {
+    width: 800px;
+    height: 800px;
+    background: #7eb3ff;
+    transform-origin: 55% 45%;
+    animation: breatheAndSpin 30s infinite ease-in-out alternate-reverse;
+}
+
+.blob-3 {
+    width: 500px;
+    height: 500px;
+    background: #b3ff7e;
+    transform-origin: 40% 60%;
+    animation: breatheAndSpin 22s infinite ease-in-out alternate;
+}
+
+/* Ключевые кадры: Дыхание (scale), движение по кругу (rotate + translate) */
+@keyframes breatheAndSpin {
+    0% {
+        transform: scale(0.9) rotate(0deg) translate(0px, 0px);
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg) translate(30px, -30px);
+    }
+    100% {
+        transform: scale(0.9) rotate(360deg) translate(-30px, 30px);
+    }
+}
+
+
+
     </style>
 </head>
 <body>
+
+<div class="ambient-background">
+    <!-- Первый круг -->
+    <div class="blob-wrapper wrapper-1">
+        <div class="blob blob-1"></div>
+    </div>
+    <!-- Второй круг -->
+    <div class="blob-wrapper wrapper-2">
+        <div class="blob blob-2"></div>
+    </div>
+    <!-- Третий круг -->
+    <div class="blob-wrapper wrapper-3">
+        <div class="blob blob-3"></div>
+    </div>
+</div>
+
+
 
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="theme-toggle">
@@ -757,6 +843,28 @@ if (heroCtaButton) {
             });
 
         });
+    </script>
+    
+    <script>
+document.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Находим обертки, а не сами круги
+    const wrapper1 = document.querySelector('.wrapper-1');
+    const wrapper2 = document.querySelector('.wrapper-2');
+    const wrapper3 = document.querySelector('.wrapper-3');
+
+    // Эффект параллакса (движение при скролле)
+    if (wrapper1) {
+        wrapper1.style.transform = `translateY(${scrollY * 0.15}px) translateX(${scrollY * 0.05}px)`;
+    }
+    if (wrapper2) {
+        wrapper2.style.transform = `translateY(${scrollY * -0.1}px) translateX(${scrollY * -0.08}px)`;
+    }
+    if (wrapper3) {
+        wrapper3.style.transform = `translateY(${scrollY * 0.08}px) translateX(${scrollY * -0.12}px)`;
+    }
+});
     </script>
     
 
