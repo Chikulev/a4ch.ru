@@ -136,7 +136,7 @@
             transition: background-color 0.3s ease;
         }
         .nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; color: var(--text-color); }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; color: var(--text-color); cursor: pointer; text-decoration: none; }
         .nav-links a { color: var(--secondary-text); text-decoration: none; margin-left: 2rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--text-color); }
 
@@ -517,6 +517,65 @@
     }
 }
 
+/* Стили для боковой навигации */
+        .side-nav {
+            position: fixed;
+            left: 2%; /* Прижимаем к левому краю */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            z-index: 90;
+        }
+
+        .side-nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Декоративная точка слева от пункта меню */
+        .side-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        /* Эффекты при наведении и для активного раздела */
+        .side-nav-link:hover,
+        .side-nav-link.active {
+            color: var(--text-color);
+            opacity: 1;
+        }
+
+        .side-nav-link.active::before {
+            background-color: #8A4DFF; /* Фирменный акцентный цвет из твоей кнопки */
+            transform: translateY(-50%) scale(1.8);
+            box-shadow: 0 0 8px rgba(138, 77, 255, 0.5);
+        }
+
+        /* Скрываем боковое меню на мобильных экранах, чтобы сэкономить место */
+        @media screen and (max-width: 1250px) {
+            .side-nav {
+                display: none;
+            }
+        }   
+
     </style>
 </head>
 <body>
@@ -548,21 +607,30 @@
     <header>
         <div class="container">
             <nav class="nav">
-                <div class="logo">a4ch.ru</div>
+                <!-- 1. Логотип теперь работает как кнопка "Наверх" без изменения URL -->
+                <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">a4ch.ru</a>
+                
+                <!-- 2.2 Новое верхнее меню для перехода на другие страницы -->
                 <div class="nav-links">
-                    <a href="#how-it-works">Как это работает</a>
-                    <a href="#services">Услуги</a>
-                    <a href="#pricing">Цены</a>
-                    <a href="#calculator-and-discounts">Калькулятор</a>
-                    <a href="#contacts">Контакты</a>
-                    <a href="#reviews">Отзывы</a>
+                    <a href="/b2b.html">Для бизнеса</a>
+                    <a href="/faq.html">Частые вопросы</a>
+                    <!-- Пока этих страниц нет, они будут вести в никуда, но мы закладываем фундамент -->
                 </div>
             </nav>
         </div>
     </header>
-
+    <nav class="side-nav">
+        <a href="#hero" class="side-nav-link">Приветствие</a>
+        <a href="#how-it-works" class="side-nav-link">Как это работает</a>
+        <a href="#services" class="side-nav-link">Услуги</a>
+        <a href="#pricing" class="side-nav-link">Цены</a>
+        <a href="#calculator-and-discounts" class="side-nav-link">Калькулятор</a>
+        <a href="#order-form-section" class="side-nav-link">Оформить заказ</a>
+        <a href="#contacts" class="side-nav-link">Контакты</a>
+        <a href="#reviews" class="side-nav-link">Отзывы</a>
+    </nav>
     <main>
-        <section class="hero">
+        <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">Печать формата А4. Дешевле. Быстрее.</h1>
@@ -596,7 +664,7 @@
                     <div class="service-card"><h3>Предпечатная обработка</h3><p>Нужно убрать лишнее, проверить орфографию или просто сделать документ красивее? Сделаю!</p></div>
                     <div class="service-card"><h3>3D-печать моделей</h3><p>Есть 3D-принтер. Могу распечатать для вас любую модель с MakerWorld, или из любого файла, пластиком PETG.</p></div>
                     <div class="service-card"><h3>Графический дизайн</h3><p>Помогу с разработкой карточки товара, логотипа, визитки или дизайна для вашего сайта.</p></div>
-                    <div class="service-card"><h3>Копирайт</h3><p>С удовольствием продумаю стуктуру текста, с учётом нужного стиля, числа символов в строке и других мелочей.</p></div>
+                    <div class="service-card"><h3>Копирайтинг</h3><p>С удовольствием продумаю стуктуру текста, с учётом нужного стиля, числа символов в строке и других мелочей.</p></div>
                     <div class="service-card strikethrough"><h3>Цветная печать</h3><p>К сожалению, пока печатаю только в черно-белом варианте. Когда-то будет и цвет, но потом.</p></div>
                     <div class="service-card strikethrough"><h3>Печать визиток и брошюр</h3><p>Могу сделать дизайн, но саму печать и обрезку придётся заказывать в типографии.</p></div>                    
                     <!-- ИСПРАВЛЕННЫЙ БОНУСНЫЙ БЛОК -->
@@ -728,7 +796,7 @@
             
             <div class="form-group">
                 <p style="color: var(--secondary-text); font-size: 0.9rem; text-align: center; margin-bottom: 1rem;">
-                    После нажатия на кнопку откроется ваша почтовая программа. Не забудьте прикрепить файлы к письму!
+                    После нажатия на кнопку откроется ваша почтовая программа.<br>Не забудьте прикрепить файлы к письму!
                 </p>
                 <button type="submit" class="submit-button">Создать письмо для заказа</button>
             </div>
@@ -1045,6 +1113,38 @@ ${comments}
             // });
 
         });
+
+                // Логика подсветки бокового меню (Scroll Spy)
+        const sections = document.querySelectorAll('section');
+        const sideNavLinks = document.querySelectorAll('.side-nav-link');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.8 // Секция считается активной, если 40% её высоты видно на экране
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Убираем класс active у всех ссылок
+                    sideNavLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // Добавляем класс active к ссылке, соответствующей текущей секции
+                    const activeId = entry.target.getAttribute('id');
+                    const activeLink = document.querySelector(`.side-nav-link[href="#${activeId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            // Отслеживаем только секции, у которых есть id
+            if (section.id) observer.observe(section);
+        });
+
     </script>
     
     <script>
