@@ -140,6 +140,9 @@
         .nav-links a { color: var(--secondary-text); text-decoration: none; margin-left: 2rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--text-color); }
 
+        /* Подсветка активной страницы в верхнем меню */
+        .nav-links a.active-page { color: var(--text-color); font-weight: 700; }
+
         /* ГЛАВНЫЙ ЭКРАН (HERO) */
         .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
         .hero-content { text-align: center; width: 100%; }
@@ -612,8 +615,8 @@
                 
                 <!-- 2.2 Новое верхнее меню для перехода на другие страницы -->
                 <div class="nav-links">
+                    <a href="/index.html" class="active-page">Старт</a>
                     <a href="/b2b.html">Для бизнеса</a>
-                    <a href="/faq.html">Частые вопросы</a>
                     <!-- Пока этих страниц нет, они будут вести в никуда, но мы закладываем фундамент -->
                 </div>
             </nav>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для бизнеса | a4ch.ru — Надежная печать на Петроградке</title>
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- Основные мета-теги для B2B -->
+    <meta name="description" content="Черно-белая печать для бизнеса в Санкт-Петербурге. Инструкции, документы, бланки. Бесплатный префлайт, проверка макетов и работа по ЭДО.">
+    <meta name="author" content="a4ch.ru">
+
+    <style>
+        /* ГЛОБАЛЬНЫЕ СТИЛИ (Идентичны главной странице) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+        :root {
+            --bg-color: #121212;
+            --text-color: #EAEAEA;
+            --accent-color: #FFFFFF;
+            --secondary-text: #A0A0A0;
+            --border-color: #333333;
+            --card-bg: #1A1A1A;
+            --link-color: #007AFF;
+            --star-color: #FFD700;
+            --bg-dotted: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='a4ch-dotted' x='0' y='0' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 20 L5 20 M8 20 L11 20 M14 20 L17 20 M20 20 L23 20 M26 20 L29 20 M32 20 L35 20 M38 20 L40 20' stroke='%23999999' stroke-width='0.5' stroke-opacity='0.3' fill='none' stroke-dasharray='2%2C3'/%3E%3Cpath d='M20 0 L20 5 M20 8 L20 11 M20 14 L20 17 M20 20 L20 23 M20 26 L20 29 M20 32 L20 35 M20 38 L20 40' stroke='%23999999' stroke-opacity='0.3' stroke-width='0.5' fill='none' stroke-dasharray='2%2C3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23a4ch-dotted)'/%3E%3C/svg%3E");
+            ::selection { color: black; background-color: rgb(255, 0, 0); }
+        }
+
+        body.light-theme {
+            --bg-color: #F5F5F7;
+            --text-color: #1D1D1F;
+            --accent-color: #000000;
+            --secondary-text: #6E6E73;
+            --border-color: #D2D2D7;
+            --card-bg: #FFFFFF;
+            ::selection { color: black; background-color: rgb(85, 0, 255); }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; }
+
+        .hero, footer {
+          background-image: var(--bg-dotted);
+          background-size: 40px 40px;
+          background-position: top left;
+          background-repeat: repeat;
+        }
+
+        /* ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ */
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 2.0rem;
+            right: 5%;
+            z-index: 101;
+            display: flex;
+            align-items: center;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            width: 50px;
+            position: relative;
+        }
+        .theme-switch input { display: none; }
+        .slider {
+            background-color: #333;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            cursor: pointer;
+            border-radius: 34px;
+            transition: .4s;
+        }
+        .slider:before {
+            background-color: #fff;
+            content: "";
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            transition: .4s;
+        }
+        input:checked + .slider { background-color: #ccc; }
+        input:checked + .slider:before { transform: translateX(22px); }
+        body.light-theme .slider { background-color: #ccc; }
+        body.light-theme .slider:before { background-color: #fff; }
+        body.light-theme input:checked + .slider { background-color: #333; }
+
+        /* ШАПКА САЙТА */
+        header {
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--bg-color), transparent);
+            backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; color: var(--text-color); cursor: pointer; text-decoration: none; }
+        
+        .nav-links a { color: var(--secondary-text); text-decoration: none; margin-left: 2rem; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--text-color); }
+        /* Подсветка активной страницы в верхнем меню */
+        .nav-links a.active-page { color: var(--text-color); font-weight: 700; }
+
+        /* БОКОВАЯ НАВИГАЦИЯ */
+        .side-nav {
+            position: fixed;
+            left: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            z-index: 90;
+        }
+        .side-nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .side-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .side-nav-link:hover, .side-nav-link.active {
+            color: var(--text-color);
+            opacity: 1;
+        }
+        .side-nav-link.active::before {
+            background-color: #8A4DFF;
+            transform: translateY(-50%) scale(1.8);
+            box-shadow: 0 0 8px rgba(138, 77, 255, 0.5);
+        }
+        @media screen and (max-width: 1250px) { .side-nav { display: none; } }
+
+        /* СЕКЦИИ И СЕТКИ */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-content { text-align: center; width: 100%; }
+        .hero-title { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.05em; color: var(--accent-color); margin-bottom: 1.5rem; }
+        .hero-title .char { display: inline-block; opacity: 0; transform: translateY(50px); }
+        .hero-subtitle { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2.5rem; color: var(--secondary-text); line-height: 1.6; }
+
+        .cta-button {
+          display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+          width: 30%; min-width: 200px; margin-top: 15px; position: relative;
+          background: linear-gradient(90deg, #6E00FF, #8A4DFF); border: 2px solid transparent;
+          border-radius: 5px; padding: 10px 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          color: white; font-size: 18px; font-weight: 700; text-decoration: none; cursor: pointer;
+          transition: all 0.3s ease; overflow: hidden;
+        }
+        .cta-button::before {
+          content: ''; position: absolute; top: var(--y, 50%); left: var(--x, 50%);
+          width: 160px; height: 160px; filter: blur(15px); background: rgba(255, 255, 255, 0.16);
+          border-radius: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none;
+        }
+        .cta-button:hover { background: linear-gradient(90deg, #6E00FF, #8A4DFF); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transform: scale(1.01); }
+        .cta-button:hover::before { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        .cta-button:mouseleave::before { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+
+        .section { padding: 100px 0; border-top: 1px solid var(--border-color); }
+        .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 1rem; text-align: center; color: var(--accent-color); }
+        .section-subtitle { font-size: 1.1rem; color: var(--secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem; line-height: 1.6; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background-color: var(--card-bg); padding: 2rem; border: 1px solid var(--border-color); border-radius: 16px; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); }
+        .service-card p { color: var(--secondary-text); line-height: 1.6; }
+
+        .how-it-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+        .step .step-number { font-size: 3rem; font-weight: 900; color: var(--accent-color); line-height: 1; }
+        .step h3 { font-size: 1.5rem; margin: 0.5rem 0; }
+        .step p { color: var(--secondary-text); line-height: 1.6; }
+
+        /* ФОРМА */
+        #order-form { background-color: var(--card-bg); padding: 3rem; border-radius: 16px; max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--secondary-text); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 1rem; background-color: var(--bg-color); border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-color); font-size: 1rem; font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 2px solid var(--link-color); border-color: var(--link-color); }
+        .submit-button { width: 100%; background-color: var(--accent-color); color: var(--bg-color); border: none; padding: 1.2rem; font-size: 1.1rem; font-weight: 700; cursor: pointer; border-radius: 8px; transition: opacity 0.3s ease; }
+        .submit-button:hover { opacity: 0.8; }
+
+        /* КОНТАКТЫ */
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+        .contact-item h3 { font-size: 1.2rem; color: var(--secondary-text); margin-bottom: 0.5rem; font-weight: 300; }
+        .contact-item p, .contact-item a { font-size: 1.1rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
+        .contact-item a:hover { color: var(--link-color); }
+
+        footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--border-color); color: var(--secondary-text); }
+
+        /* ФОНОВЫЕ КРУГИ */
+        .ambient-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -1; pointer-events: none; }
+        .blob-wrapper { position: absolute; transition: transform 0.1s ease-out; }
+        .wrapper-1 { top: -10%; left: -10%; } .wrapper-2 { top: 40%; right: -20%; } .wrapper-3 { bottom: -15%; left: 15%; }
+        .blob { border-radius: 50%; filter: blur(120px); opacity: 0.35; }
+        .blob-1 { width: 600px; height: 600px; background: #ff7eb3; transform-origin: 45% 55%; animation: breatheAndSpin 25s infinite ease-in-out alternate; }
+        .blob-2 { width: 800px; height: 800px; background: #7eb3ff; transform-origin: 55% 45%; animation: breatheAndSpin 30s infinite ease-in-out alternate-reverse; }
+        .blob-3 { width: 500px; height: 500px; background: #b3ff7e; transform-origin: 40% 60%; animation: breatheAndSpin 22s infinite ease-in-out alternate; }
+        @keyframes breatheAndSpin {
+            0% { transform: scale(0.9) rotate(0deg) translate(0px, 0px); }
+            50% { transform: scale(1.1) rotate(180deg) translate(30px, -30px); }
+            100% { transform: scale(0.9) rotate(360deg) translate(-30px, 30px); }
+        }
+
+        /* АДАПТИВНОСТЬ */
+        @media screen and (max-width: 950px) { .nav-links { display: none; } }
+        @media screen and (max-width: 768px) { .theme-switcher { top: 1.5rem; right: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+<div class="ambient-background">
+    <div class="blob-wrapper wrapper-1"><div class="blob blob-1"></div></div>
+    <div class="blob-wrapper wrapper-2"><div class="blob blob-2"></div></div>
+    <div class="blob-wrapper wrapper-3"><div class="blob blob-3"></div></div>
+</div>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <!-- Логотип ведет на главную страницу -->
+                <a href="/index.html" class="logo">a4ch.ru</a>
+                <div class="nav-links">
+                    <a href="/index.html">Старт</a>
+                    <a href="/b2b.html" class="active-page">Для бизнеса</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- <nav class="side-nav">
+        <a href="#b2b-hero" class="side-nav-link">Приветствие</a>
+        <a href="#b2b-benefits" class="side-nav-link">Подход к работе</a>
+        <a href="#b2b-process" class="side-nav-link">Процесс</a>
+        <a href="#b2b-order" class="side-nav-link">Оформить заявку</a>
+        <a href="#contacts" class="side-nav-link">Контакты</a>
+    </nav> -->
+
+    <main>
+        <section id="b2b-hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">САЙТ В РАЗРАБОТКЕ</h1>
+                    <p class="hero-subtitle">Надёжная чёрно-белая печать технической документации, инструкций и бланков. Выступаю в роли вашего внутреннего QA-инженера: проверяю верстку, обращаю внимание на смысловые ошибки и вношу мелкие правки. Никакого конвейерного безразличия по лучшему ценновому предложению.</p>
+                    <!-- <a href="#b2b-order" class="cta-button" id="hero-cta-button">Обсудить задачу</a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="b2b-benefits" class="section" style="border-top: none;">
+            <div class="container">
+                <h2 class="section-title">Сервис, который снимает головную боль</h2>
+                <p class="section-subtitle">Обычно типографии просто жмут кнопку «печать». Я отношусь к вашим материалам так, словно это мой собственный бизнес.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Бесплатный префлайт</h3>
+                        <p>Ни один файл не уходит в печать вслепую. Досконально проверяю вылеты, поля, шрифты и отступы. Технический брак будет обнаружен до того, как испортит тираж.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Смысловой аудит</h3>
+                        <p>Я читаю то, что печатаю. Если глаз зацепится за опечатку, сбитую логику или кривую формулировку — я обязательно сообщу об этом и предложу вариант исправления.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Бесплатные правки</h3>
+                        <p>Съехала верстка? Забыли дотянуть фон или обновить логотип? Не буду гонять вас обратно к дизайнеру. По согласованию сам внесу мелкие правки в исходник.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Документы и ЭДО</h3>
+                        <p>Работаю официально. Предоставляю все закрывающие документы, чеки и акты. Поддерживаю оплату по счету. Ваша бухгалтерия будет довольна.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <section id="b2b-process" class="section">
+            <div class="container">
+                <h2 class="section-title">Как строится работа</h2>
+                <p class="section-subtitle">Максимально плотный контакт на старте и автономная работа на этапе производства.</p>
+                <div class="how-it-works-grid">
+                    <div class="step"> 
+                        <div class="step-number">01</div> 
+                        <h3>Оценка и аудит</h3> 
+                        <p>Вы присылаете задачу. Я проверяю макеты на пригодность к печати, смотрю тексты и называю точные сроки и стоимость.</p> 
+                    </div>
+                    <div class="step"> 
+                        <div class="step-number">02</div> 
+                        <h3>Тестовый отпечаток</h3> 
+                        <p>Если в макете много полутонов или сложной графики, делаю бесплатную пробу нескольких страниц, чтобы вы были уверены в результате.</p> 
+                    </div>
+                    <div class="step"> 
+                        <div class="step-number">03</div> 
+                        <h3>Тираж и передача</h3> 
+                        <p>Печатаю заказ точно в оговоренный срок. Выдаю закрывающие документы. Встречаемся для передачи готового тиража без очередей.</p> 
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <section id="b2b-order" class="section">
+            <div class="container">
+                <h2 class="section-title">Связаться со мной</h2>
+                <p class="section-subtitle">Опишите задачу: что печатаем, примерный объем и сроки. Я отвечу вам максимально оперативно.</p>
+                
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="company">Название компании или ваше имя</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Email, Telegram или номер телефона</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Описание задачи (тираж, сроки, необходимость выставления счета)</label>
+                        <textarea id="comments" name="comments" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p style="color: var(--secondary-text); font-size: 0.9rem; text-align: center; margin-bottom: 1rem;">
+                            После нажатия откроется ваша почтовая программа.<br>К письму можно будет прикрепить файлы и реквизиты.
+                        </p>
+                        <button type="submit" class="submit-button">Создать письмо для заявки</button>
+                    </div>
+                </form>
+            </div>
+        </section> -->
+
+        <!-- <section id="contacts" class="section">
+            <div class="container">
+                <h2 class="section-title">Контакты и самовывоз</h2>
+                <p class="section-subtitle">Открыт к бесценному общению.<br>Кликабельно!</p>
+                <div class="contacts-grid">
+                    <div class="contact-item"><h3>Адрес</h3><p><a href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.304537%2C59.958283&mode=routes&rtext=~59.958243%2C30.304071&rtt=mt&ruri=~&z=19" target="_blank">ул. Малая Пушкарская, д. 5</a></p></div>
+                    <div class="contact-item"><h3>Телефон</h3><p><a href="tel:+79117294090">+7 (911) 729-40-90</a></p></div>
+                    <div class="contact-item"><h3>Telegram</h3><p><a href="https://t.me/chikulev" target="_blank">@Chikulev</a></p></div>
+                    <div class="contact-item"><h3>Email</h3><p><a href="mailto:chikulev@mail.ru">chikulev@mail.ru</a></p></div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <footer style="border-top: none;">
+        <div class="container">
+            <p>© 2026 a4ch.ru • Все права защищены, всё плохое осуждаемо.</p>
+            <p style="margin-top: 10px;">Самозанятый, Чикулёв Дмитрий • г. Санкт-Петербург</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Анимация блика на кнопке
+            const heroCtaButton = document.querySelector('#hero-cta-button');
+            if (heroCtaButton) {
+              heroCtaButton.addEventListener('mousemove', (e) => {
+                const rect = heroCtaButton.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                heroCtaButton.style.setProperty('--x', `${x}px`);
+                heroCtaButton.style.setProperty('--y', `${y}px`);
+              });
+            }
+            
+            // Переключатель темы
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            if (localStorage.getItem('theme') === 'light') { body.classList.add('light-theme'); themeToggle.checked = true; }
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-theme');
+                localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+            });
+
+            // Логика формы (mailto)
+            const orderForm = document.getElementById('order-form');
+            if(orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const company = document.getElementById('company').value;
+                    const contact = document.getElementById('contact').value;
+                    const comments = document.getElementById('comments').value;
+
+                    const subject = `B2B Заявка с сайта a4ch.ru от ${company}`;
+                    const bodyText = `
+Здравствуйте! Это заявка от юридического лица / бизнеса с сайта a4ch.ru.
+
+Компания / Имя: ${company}
+Контакт: ${contact}
+
+Задача:
+${comments}
+
+---
+{{{Пожалуйста, прикрепите файлы для печати и реквизиты (если нужен счет) к этому письму}}}
+                    `;
+                    const mailtoLink = `mailto:chikulev@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+                    window.location.href = mailtoLink;
+                });
+            }
+
+            // Анимации GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+            const title = document.querySelector('.hero-title');
+            if (title) {
+                const chars = title.textContent.split('');
+                title.innerHTML = '';
+                chars.forEach(char => {
+                    const span = document.createElement('span');
+                    span.className = 'char';
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    title.appendChild(span);
+                });
+                gsap.to('.char', { delay: 0.2, y: 0, opacity: 1, stagger: 0.05, duration: 1, ease: 'power3.out' });
+            }
+            
+            gsap.from('.hero-subtitle, .cta-button', {
+              delay: 0.5, y: 20, opacity: 0, duration: 0.8, ease: 'power2.out', stagger: 0.2
+            });
+            gsap.to('.cta-button', { opacity: 1, duration: 0.1 });
+            
+            gsap.utils.toArray('.section').forEach(section => {
+                const elemsToAnimate = section.querySelectorAll(".section-title, .section-subtitle, .service-card, .step, #order-form, .contact-item");
+                if (elemsToAnimate.length > 0) {
+                    gsap.from(elemsToAnimate, {
+                        scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" },
+                        opacity: 0, y: 50, duration: 0, stagger: 0.1, ease: "power3.out"
+                    });
+                }
+            });
+
+            // Scroll Spy для бокового меню
+            const sections = document.querySelectorAll('section');
+            const sideNavLinks = document.querySelectorAll('.side-nav-link');
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.8 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        sideNavLinks.forEach(link => link.classList.remove('active'));
+                        const activeId = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.side-nav-link[href="#${activeId}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => { if (section.id) observer.observe(section); });
+        });
+
+        // Параллакс фоновых кругов
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const wrapper1 = document.querySelector('.wrapper-1');
+            const wrapper2 = document.querySelector('.wrapper-2');
+            const wrapper3 = document.querySelector('.wrapper-3');
+
+            if (wrapper1) wrapper1.style.transform = `translateY(${scrollY * 0.15}px) translateX(${scrollY * 0.05}px)`;
+            if (wrapper2) wrapper2.style.transform = `translateY(${scrollY * -0.1}px) translateX(${scrollY * -0.08}px)`;
+            if (wrapper3) wrapper3.style.transform = `translateY(${scrollY * 0.08}px) translateX(${scrollY * -0.12}px)`;
+        });
+    </script>
+</body>
+</html>
