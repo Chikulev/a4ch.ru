@@ -695,59 +695,54 @@
     </div>
 </section>
 
-<section id="order-form-section" class="section">
-    <div class="container">
-        <h2 class="section-title">Оформить заказ</h2>
-        <p class="section-subtitle">Заполните форму, и я свяжусь с вами для обсуждения деталей.</p>
-        
-        <form id="order-form" action="https://formsubmit.co/chikulev@mail.ru" method="POST" enctype="multipart/form-data">
-            
-            <!-- Настройки для Formsubmit -->
-            <input type="hidden" name="_subject" value="Новая заявка с сайта a4ch.ru!">
-            <input type="hidden" name="_captcha" value="false"> <!-- Отключаем их капчу, у нас есть honeypot -->
 
-            <!-- Поля формы -->
-            <div class="form-group">
-                <label for="name">Ваше имя</label>
-                <input type="text" id="name" name="name" required>
+        <section id="order-form-section" class="section">
+            <div class="container">
+                <h2 class="section-title">Оформить заказ</h2>
+                <p class="section-subtitle">Заполните форму, и я свяжусь с вами для обсуждения деталей.</p>
+                <form id="order-form" action="https://formspree.io/f/mbdpnenb" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Email, Telegram или телефон</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Выберите услугу</label>
+                        <select id="service" name="service">
+                            <option>Односторонняя Ч/Б печать формата А4</option>
+                            <option>Ч/Б печать формата А4 с двух сторон листа</option>
+                            <option>Копирование</option>
+                            <option>Сканирование</option>
+                            <option>Предпечатная обработка</option>
+                            <option>3D-печать</option>
+                            <option>Графический дизайн</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group">    
+                        <label for="file-upload" class="file-upload-label">Прикрепите файл</label>
+                        <input type="file" id="file-upload" name="upload">
+                        <div id="file-name">Файл не выбран</div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="link">Вставьте ссылку на файл (например, с dropmefiles.com)</label>
+                        <input type="url" id="link" name="link" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Комментарии к заказу (количество страниц, срочность, промо-код и т.д.)</label>
+                        <textarea id="comments" name="comments" rows="4"></textarea>
+                    </div>
+                    <!-- Honeypot: ловушка для спам-ботов -->
+                    <div class="honeypot">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <button type="submit" class="submit-button">Отправить</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="contact">Email или Telegram</label>
-                <input type="text" id="contact" name="contact" required>
-            </div>
-            <div class="form-group">
-                <label for="service">Выберите услугу</label>
-                <select id="service" name="service">
-                    <option>Односторонняя Ч/Б печать формата А4</option>
-                    <option>Ч/Б печать формата А4 с двух сторон листа</option>
-                    <option>Копирование</option>
-                    <option>Сканирование</option>
-                    <option>Предпечатная обработка</option>
-                    <option>3D-печать</option>
-                    <option>Графический дизайн</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="file-upload" class="file-upload-label">Прикрепите файл</label>
-                <input type="file" id="file-upload" name="attachment"> <!-- ВАЖНО: name="attachment" -->
-                <div id="file-name">Файл не выбран</div>
-            </div>
-            <div class="form-group">
-                <label for="link">Или вставьте ссылку</label>
-                <input type="url" id="link" name="link" placeholder="https://...">
-            </div>
-            <div class="form-group">
-                <label for="comments">Комментарии к заказу (количество страниц, срочность, промо-код и т.д.)</label>
-                <textarea id="comments" name="comments" rows="4"></textarea>
-            </div>
-
-            <!-- Honeypot: ловушка для спам-ботов -->
-            <input type="text" name="_honey" style="display:none">
-
-            <button type="submit" class="submit-button">Отправить</button>
-        </form>
-    </div>
-</section>
+        </section>
 
 <section id="contacts" class="section">
     <div class="container">
@@ -985,157 +980,7 @@ if (heroCtaButton) {
             //     fileNameDisplay.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : 'Файл не выбран';
             // });
 
-            // --- ЛОГИКА ФОРМЫ new---
-            // const fileInput = document.getElementById('file-upload');
-            // const fileNameDisplay = document.getElementById('file-name');
-
-            // if (fileInput) {
-            //     fileInput.addEventListener('change', () => {
-            //         fileNameDisplay.textContent = fileInput.files.length > 0 
-            //             ? `Выбран файл: ${fileInput.files[0].name}` 
-            //             : 'Файл не выбран';
-            //     });
-            // }
-
-            // --- УПРОЩЕННАЯ ЛОГИКА ФОРМЫ 4---
-//        const fileInput = document.getElementById('file-upload');
-//        const fileNameDisplay = document.getElementById('file-name');
-//
-//        if (fileInput) {
-//            fileInput.addEventListener('change', () => {
-//                fileNameDisplay.textContent = fileInput.files.length > 0 
-//                    ? `Выбран файл: ${fileInput.files[0].name}` 
-//                    : 'Файл не выбран';
-//            });
-//        }
-
-            // --- НОВАЯ, УЛУЧШЕННАЯ ЛОГИКА ФОРМЫ С ОТПРАВКОЙ ЧЕРЕЗ WEB3FORMS ---
-//        const orderForm = document.getElementById('order-form');
-//        const fileInput = document.getElementById('file-upload');
-//        const fileNameDisplay = document.getElementById('file-name');
-//        const submitButton = orderForm.querySelector('.submit-button');
-//
-//        // Отображение имени выбранного файла
-//        if (fileInput) {
-//            fileInput.addEventListener('change', () => {
-//                fileNameDisplay.textContent = fileInput.files.length > 0 
-//                    ? `Выбран файл: ${fileInput.files[0].name}` 
-//                    : 'Файл не выбран';
-//            });
-//        }
-//
-//        // Обработка отправки формы
-//        orderForm.addEventListener('submit', function(e) {
-//            e.preventDefault(); // Предотвращаем стандартную отправку
-//
-//            // Проверка на спам-ботов
-//            if (document.getElementById('username').value) {
-//                console.log('Honeypot triggered. Spam detected.');
-//                return;
-//            }
-//
-//            const formData = new FormData(orderForm);
-//            const accessKey = '9cfdc299-5f72-4b38-beb6-ae0ff1b22307'; // <-- ВСТАВЬТЕ СЮДА ВАШ КЛЮЧ
-//            
-//            formData.append("access_key", accessKey);
-//            formData.append("subject", "Новая заявка с сайта a4ch.ru"); // Тема письма
-//
-//            const object = Object.fromEntries(formData);
-//            const json = JSON.stringify(object);
-//
-//            submitButton.textContent = 'Отправка...';
-//            submitButton.disabled = true;
-//
-//            fetch('https://api.web3forms.com/submit', {
-//                method: 'POST',
-//                headers: {
-//                    'Content-Type': 'application/json',
-//                    'Accept': 'application/json'
-//                },
-//                body: json
-//            })
-//            .then(async (response) => {
-//                let jsonResponse = await response.json();
-//                if (response.status == 200) {
-//                    submitButton.textContent = 'Успешно отправлено!';
-//                } else {
-//                    console.log(response);
-//                    submitButton.textContent = jsonResponse.message;
-//                }
-//            })
-//            .catch(error => {
-//                console.log(error);
-//                submitButton.textContent = 'Ошибка отправки';
-//            })
-//            .then(function() {
-//                orderForm.reset();
-//                fileNameDisplay.textContent = 'Файл не выбран';
-//                setTimeout(() => {
-//                    submitButton.textContent = 'Отправить';
-//                    submitButton.disabled = false;
-//                }, 4000);
-//            });
-//        });
-
-        // --- ЛОГИКА ФОРМЫ С ОТПРАВКОЙ НА СВОЙ БЭКЕНД ---
-//        const orderForm = document.getElementById('order-form');
-//        const fileInput = document.getElementById('file-upload');
-//        const fileNameDisplay = document.getElementById('file-name');
-//        const submitButton = orderForm.querySelector('.submit-button');
-//
-//        if (fileInput) {
-//            fileInput.addEventListener('change', () => {
-//                fileNameDisplay.textContent = fileInput.files.length > 0 ? `Выбран файл: ${fileInput.files[0].name}` : 'Файл не выбран';
-//            });
-//        }
-//
-//        orderForm.addEventListener('submit', function(e) {
-//            e.preventDefault();
-//            if (document.getElementById('username').value) { return; }
-//
-//            const formData = new FormData(orderForm);
-//            const workerUrl = 'https://a4ch-form-handler.chikulev.workers.dev'; // <-- URL ВОРКЕРА
-//
-//            submitButton.textContent = 'Отправка...';
-//            submitButton.disabled = true;
-//
-//            fetch(workerUrl, {
-//                method: 'POST',
-//                body: formData // Отправляем как FormData, это важно для файлов
-//            })
-//            .then(response => response.json())
-//            .then(data => {
-//                if (data.success) {
-//                    submitButton.textContent = 'Успешно отправлено!';
-//                } else {
-//                    submitButton.textContent = 'Ошибка!';
-//                }
-//            })
-//            .catch(error => {
-//                console.error('Error:', error);
-//                submitButton.textContent = 'Ошибка сети!';
-//            })
-//            .finally(() => {
-//                setTimeout(() => {
-//                    orderForm.reset();
-//                    fileNameDisplay.textContent = 'Файл не выбран';
-//                    submitButton.textContent = 'Отправить';
-//                    submitButton.disabled = false;
-//                }, 4000);
-//            });
-//        });
-
-        // --- ЛОГИКА ОТОБРАЖЕНИЯ ИМЕНИ ФАЙЛА ---
-        const fileInput = document.getElementById('file-upload');
-        const fileNameDisplay = document.getElementById('file-name');
-        if (fileInput) {
-            fileInput.addEventListener('change', () => {
-                fileNameDisplay.textContent = fileInput.files.length > 0 ? `Выбран файл: ${fileInput.files[0].name}` : 'Файл не выбран';
-            });
-        }
-
             
-
             // --- АНИМАЦИИ ---
             gsap.registerPlugin(ScrollTrigger, Draggable);
 
