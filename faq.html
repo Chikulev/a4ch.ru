@@ -419,7 +419,7 @@
         }
 
         /* При 1450px и меньше */
-        @media (max-width: 1450px) {
+        @media (max-width: 1500px) and (min-width: 950px) {
           .nav {
             justify-content: flex-start;
           }
@@ -660,18 +660,32 @@
     .faq-interactive-wrapper {
         flex-direction: column;
         gap: 1.5rem;
+                /* ФИКС: Ограничиваем обертку */
+        width: 100%;
+        min-width: 0; 
     }
 
     /* На мобилках левое меню превращается в свайп-ленту чипов */
     .faq-nav {
         flex-direction: row;
         overflow-x: auto;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
         position: static;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         /* Прячем скроллбар */
         scrollbar-width: none; 
+                /* ФИКС: Запрещаем блоку растягивать страницу */
+        width: 100vw;
+        /* Отрицательный отступ, который вытягивает блок до левого края экрана */
+        margin-left: calc(-50vw + 50%);
+        /* Отрицательный отступ до правого края экрана */
+        margin-right: calc(-50vw + 50%);
+        
+        /* Внутренние отступы, чтобы первая и последняя кнопки 
+           не прилипали к рамке телефона, а стояли вровень с текстом сайта */
+        padding-left: calc(50vw - 50%);
+        padding-right: calc(50vw - 50%);
     }
     .faq-nav::-webkit-scrollbar {
         display: none;
@@ -930,6 +944,141 @@ input[type=range]::-webkit-slider-runnable-track {
     .marquee-content span { font-size: 2rem; margin: 0 1rem; }
 }
 
+/* ========================================== */
+/* МОБИЛЬНОЕ МЕНЮ И БУРГЕР */
+/* ========================================== */
+
+/* Бургер-кнопка (Скрыта на ПК) */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 102; /* Выше шапки */
+}
+
+.burger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+}
+
+/* Мобильное меню (Подложка) */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    height: 100dvh; /* Защита для iOS Safari */
+    background: var(--bg-color); /* Берет цвет из твоей темы */
+    z-index: 9999; /* Перекрывает вообще всё, даже боковую навигацию */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Эффект стекла */
+    background: rgba(18, 18, 18, 0.95); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Скрыто по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Стекло для светлой темы (Автоматически подхватит твой body.light-theme) */
+body.light-theme .mobile-menu {
+    background: rgba(245, 245, 247, 0.95);
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Крестик */
+.close-menu-btn {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    line-height: 1;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+.close-menu-btn:hover { transform: scale(1.1); }
+
+/* Ссылки */
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+.mobile-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+.mobile-link:hover, .mobile-link.active-page {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* Блок 24/7 */
+.mobile-menu-footer {
+    margin-top: 3rem;
+    text-align: center;
+    z-index: 2;
+}
+.mobile-menu-footer p {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.mobile-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--link-color);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ========================================== */
+/* АДАПТИВ (ВКЛЮЧАЕТСЯ ТОЛЬКО ПРИ < 950px) */
+/* ========================================== */
+@media (max-width: 950px) {
+    .nav-links { 
+        display: none !important; 
+    }
+    .burger-btn { 
+        display: flex; 
+        /* ОТОДВИГАЕМ БУРГЕР ВЛЕВО, чтобы он не налез на переключатель темы! */
+        margin-right: 100px; 
+    }
+}
+
     </style>
 </head>
 <body class="light-theme">
@@ -969,9 +1118,35 @@ input[type=range]::-webkit-slider-runnable-track {
                     <a href="/b2b.html">Сотрудничество</a>
                     <!-- <a href="">Витрина 3D товаров</a> -->
                 </div>
+    
+                <!-- ДОБАВЛЯЕМ БУРГЕР СЮДА (Прямо перед закрывающим </nav>) -->
+    <button class="burger-btn" id="burger-btn" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
             </nav>
         </div>
     </header>
+
+    <!-- ПОЛНОЭКРАННОЕ МОБИЛЬНОЕ МЕНЮ -->
+<div class="mobile-menu" id="mobile-menu">
+    <!-- Крестик для закрытия -->
+    <button class="close-menu-btn" id="close-menu-btn" aria-label="Закрыть меню">✕</button>
+    
+    <div class="mobile-menu-content">
+        <a href="/index.html" class="mobile-link">Старт</a>
+        <a href="/faq.html" class="mobile-link active-page">Частые вопросы</a>
+        <a href="/b2b.html" class="mobile-link">Сотрудничество</a>
+    </div>
+
+    <!-- Блок связи 24/7 -->
+    <div class="mobile-menu-footer">
+        <p>На связи 25/8</p>
+        <a href="https://t.me/chikulev" target="_blank" class="mobile-btn">Написать мне напрямую</a>
+    </div>
+</div>
 
 <!-- СЕКЦИЯ FAQ: ДИНАМИЧЕСКИЙ ДИСПЛЕЙ -->
 <section id="faq" class="section" style="padding-top: 150px;">
@@ -983,6 +1158,7 @@ input[type=range]::-webkit-slider-runnable-track {
             <!-- ЛЕВАЯ ЧАСТЬ: Навигация по вопросам -->
             <div class="faq-nav">
                 <button class="faq-btn active" data-target="faq-1">Есть ли доставка?</button>
+                <button class="faq-btn" data-target="faq-14">Время работы</button>
                 <button class="faq-btn" data-target="faq-2">Как оформить заказ?</button>
                 <button class="faq-btn" data-target="faq-3">Способы оплаты</button>
                 <button class="faq-btn" data-target="faq-4">Отправка файлов</button>
@@ -1022,7 +1198,7 @@ input[type=range]::-webkit-slider-runnable-track {
                 </div>
                 <div class="faq-content faq-secret-content" id="faq-6">
                     <h3>Бинго! Вы нашли пасхалку 🎁</h3>
-                    <p>Как воспользоваться промокодом <strong>faq</strong>, который даёт скидку 10% в дополнение ко всем остальным скидкам?</p>
+                    <p>Как воспользоваться промокодом <strong>ВОПРОСЫ</strong>, который даёт скидку 10% в дополнение ко всем остальным скидкам?</p>
                     <p>Просто назовите или напишите это слово при заказе. Спасибо за вашу внимательность к деталям!</p>
                 </div>
                 <div class="faq-content" id="faq-7">
@@ -1053,6 +1229,10 @@ input[type=range]::-webkit-slider-runnable-track {
                 <div class="faq-content" id="faq-13">
                     <h3>Цветная печать и визитки 🖨️</h3>
                     <p>Нет, мы этого не делаем. Моя главная фишка и специализация — это максимально быстрая и недорогая <strong>чёрно-белая печать</strong> документов. Я сознательно не распыляюсь на цветную полиграфию, фото или визитки. Именно этот жесткий фокус позволяет мне держать самые низкие цены на рынке в своей нише.</p>
+                </div>
+                <div class="faq-content" id="faq-14">
+                    <h3>Часы и график 🕐</h3>
+                    <p>Работаю в любое время, 25/8. Можете обращаться и расчитывать на меня тогда, когда вам это нужно.</p>
                 </div>
 
             </div>
@@ -1488,6 +1668,52 @@ if (card && btn) {
         btn.style.transform = `translate(${xPos}px, ${yPos}px)`;
     });
 }
+
+// ==========================================
+// ЛОГИКА МОБИЛЬНОГО МЕНЮ (ИСПРАВЛЕННАЯ)
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerBtn = document.getElementById('burger-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const body = document.body;
+
+    if (!burgerBtn || !mobileMenu || !closeBtn) return;
+
+    // Открытие
+    const openMenu = () => {
+        mobileMenu.classList.add('active');
+        body.style.overflow = 'hidden'; // Блокируем скролл сайта
+    };
+
+    // Закрытие
+    const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        body.style.overflow = ''; // Разблокируем скролл
+    };
+
+    // Клик на бургер
+    burgerBtn.addEventListener('click', openMenu);
+
+    // Клик на крестик
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Клик мимо ссылок (по фону)
+    mobileMenu.addEventListener('click', (e) => {
+        // Если кликнули в саму подложку или в пустые зоны контейнеров, а не по ссылке
+        if (e.target === mobileMenu || 
+            e.target.classList.contains('mobile-menu-content') || 
+            e.target.classList.contains('mobile-menu-footer')) {
+            closeMenu();
+        }
+    });
+
+    // Клик по любой ссылке меню
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
 
     </script>
     
