@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Для бизнеса | a4ch.ru — Надежная печать на Петроградке</title>
+    <title>a4ch.ru | Срочная Ч/б печать формата А4 в Петроградском районе</title>
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
 
-    <!-- Основные мета-теги для B2B -->
-    <meta name="description" content="Черно-белая печать для бизнеса в Санкт-Петербурге. Инструкции, документы, бланки. Бесплатный префлайт, проверка макетов и работа по ЭДО.">
-    <meta name="author" content="a4ch.ru">
+<!-- Основные мета-теги -->
+<meta name="description" content="Быстрая и недорогая ч/б печать формата А4 в Петроградском районе СПб. Студентам скидки. Онлайн-заказ и калькулятор стоимости.">
+<meta name="author" content="a4ch.ru">
+
+<!-- Open Graph Protocol (для VK, Telegram, WhatsApp и др.) -->
+<meta property="og:title" content="a4ch.ru — Ч/Б печать на Петроградке">
+<meta property="og:description" content="Быстрая и недорогая печать формата А4. Студентам скидки. Онлайн-заказ и калькулятор стоимости.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://a4ch.ru">
+<meta property="og:site_name" content="a4ch.ru">
+<meta property="og:image" content="https://a4ch.ru/preview-image.webp">
+<meta property="og:image:type" content="image/webp"> 
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card (для Twitter) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="a4ch.ru — Ч/Б печать на Петроградке">
+<meta name="twitter:description" content="Быстрая и недорогая печать формата А4. Студентам скидки. Онлайн-заказ и калькулятор стоимости.">
+<meta name="twitter:image" content="https://a4ch.ru/preview-image.webp">
 
     <style>
-        /* ГЛОБАЛЬНЫЕ СТИЛИ (Идентичны главной странице) */
+        /* ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
         :root {
@@ -23,10 +40,11 @@
             --secondary-text: #A0A0A0;
             --border-color: #333333;
             --card-bg: #1A1A1A;
-            --link-color: #007AFF;
+            --link-color: #8A4DFF;
             --star-color: #FFD700;
+            /* SVG‑фон с пунктирными линиями */
             --bg-dotted: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='a4ch-dotted' x='0' y='0' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 20 L5 20 M8 20 L11 20 M14 20 L17 20 M20 20 L23 20 M26 20 L29 20 M32 20 L35 20 M38 20 L40 20' stroke='%23999999' stroke-width='0.5' stroke-opacity='0.3' fill='none' stroke-dasharray='2%2C3'/%3E%3Cpath d='M20 0 L20 5 M20 8 L20 11 M20 14 L20 17 M20 20 L20 23 M20 26 L20 29 M20 32 L20 35 M20 38 L20 40' stroke='%23999999' stroke-opacity='0.3' stroke-width='0.5' fill='none' stroke-dasharray='2%2C3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23a4ch-dotted)'/%3E%3C/svg%3E");
-            ::selection { color: black; background-color: rgb(255, 0, 0); }
+            ::selection {  color: black;  background-color: #8A4DFF;}
         }
 
         body.light-theme {
@@ -36,7 +54,7 @@
             --secondary-text: #6E6E73;
             --border-color: #D2D2D7;
             --card-bg: #FFFFFF;
-            ::selection { color: black; background-color: rgb(85, 0, 255); }
+            ::selection {  color: black;  background-color: #8A4DFF;}
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,14 +70,20 @@
         }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; }
 
-        .hero, footer {
+
+
+        .no-good-word { text-decoration: line-through; color: var(--secondary-text); opacity: 0.2; }
+
+        .hero, footer        /* Пунктирный фон */
+        {
           background-image: var(--bg-dotted);
           background-size: 40px 40px;
           background-position: top left;
           background-repeat: repeat;
         }
 
-        /* ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ */
+
+ /* НОВЫЙ ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ */
         .theme-switch-wrapper {
             position: fixed;
             top: 2.0rem;
@@ -100,6 +124,7 @@
         body.light-theme .slider:before { background-color: #fff; }
         body.light-theme input:checked + .slider { background-color: #333; }
 
+
         /* ШАПКА САЙТА */
         header {
             padding: 2rem 0;
@@ -112,142 +137,670 @@
         }
         .nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; color: var(--text-color); cursor: pointer; text-decoration: none; }
-        
         .nav-links a { color: var(--secondary-text); text-decoration: none; margin-left: 2rem; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--text-color); }
+
         /* Подсветка активной страницы в верхнем меню */
         .nav-links a.active-page { color: var(--text-color); font-weight: 700; }
 
-        /* БОКОВАЯ НАВИГАЦИЯ */
-        .side-nav {
-            position: fixed;
-            left: 2%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            z-index: 90;
-        }
-        .side-nav-link {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            position: relative;
-            padding-left: 20px;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .side-nav-link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background-color: var(--border-color);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        .side-nav-link:hover, .side-nav-link.active {
-            color: var(--text-color);
-            opacity: 1;
-        }
-        .side-nav-link.active::before {
-            background-color: #8A4DFF;
-            transform: translateY(-50%) scale(1.8);
-            box-shadow: 0 0 8px rgba(138, 77, 255, 0.5);
-        }
-        @media screen and (max-width: 1250px) { .side-nav { display: none; } }
-
-        /* СЕКЦИИ И СЕТКИ */
+        /* ГЛАВНЫЙ ЭКРАН (HERO) */
         .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
         .hero-content { text-align: center; width: 100%; }
         .hero-title { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.05em; color: var(--accent-color); margin-bottom: 1.5rem; }
         .hero-title .char { display: inline-block; opacity: 0; transform: translateY(50px); }
-        .hero-subtitle { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2.5rem; color: var(--secondary-text); line-height: 1.6; }
+        .hero-subtitle { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2.5rem; color: var(--secondary-text); line-height: 1.6; }
 
         .cta-button {
-          display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-          width: 30%; min-width: 200px; margin-top: 15px; position: relative;
-          background: linear-gradient(90deg, #6E00FF, #8A4DFF); border: 2px solid transparent;
-          border-radius: 5px; padding: 10px 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-          color: white; font-size: 18px; font-weight: 700; text-decoration: none; cursor: pointer;
-          transition: all 0.3s ease; overflow: hidden;
-        }
-        .cta-button::before {
-          content: ''; position: absolute; top: var(--y, 50%); left: var(--x, 50%);
-          width: 160px; height: 160px; filter: blur(15px); background: rgba(255, 255, 255, 0.16);
-          border-radius: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none;
-        }
-        .cta-button:hover { background: linear-gradient(90deg, #6E00FF, #8A4DFF); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transform: scale(1.01); }
-        .cta-button:hover::before { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        .cta-button:mouseleave::before { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
 
-        .section { padding: 100px 0; border-top: 1px solid var(--border-color); }
+        width: 30%;
+        min-width: 200px;
+          margin-top: 15px;
+          position: relative;
+
+          background: linear-gradient(90deg, #6E00FF, #8A4DFF);
+          border: 2px solid transparent;
+          border-radius: 5px;
+          padding: 10px 0; /* можно оставить 10px или чуть больше, если хочется */
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+          color: white;
+          font-size: 18px;
+          font-weight: 700;
+          text-decoration: none;
+          cursor: pointer;
+
+          transition: all 0.3s ease;
+          overflow: hidden;
+        }
+
+        /* Блик внутри кнопки */
+        .cta-button::before {
+          content: '';
+          position: absolute;
+          top: var(--y, 50%);
+          left: var(--x, 50%);
+          width: 160px;
+          height: 160px;
+          filter: blur(15px);
+          background: rgba(255, 255, 255, 0.16);
+          border-radius: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          pointer-events: none;
+        }
+
+        /* Поведение при наведении */
+        .cta-button:hover {
+          background: linear-gradient(90deg, #6E00FF, #8A4DFF);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+          transform: scale(1.01);
+        }
+
+        .cta-button:hover::before {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+
+        .cta-button:mouseleave::before {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 0;
+        }
+        
+        /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
+        .section { padding: 100px 0; }
         .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 1rem; text-align: center; color: var(--accent-color); }
         .section-subtitle { font-size: 1.1rem; color: var(--secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem; line-height: 1.6; }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card { background-color: var(--card-bg); padding: 2rem; border: 1px solid var(--border-color); border-radius: 16px; transition: all 0.3s ease; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); }
-        .service-card p { color: var(--secondary-text); line-height: 1.6; }
-
+        /* СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" */
         .how-it-works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
         .step .step-number { font-size: 3rem; font-weight: 900; color: var(--accent-color); line-height: 1; }
         .step h3 { font-size: 1.5rem; margin: 0.5rem 0; }
         .step p { color: var(--secondary-text); line-height: 1.6; }
 
-        /* ФОРМА */
+        /* СЕКЦИЯ "УСЛУГИ" */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background-color: var(--card-bg); padding: 2rem; border: 1px solid var(--border-color); border-radius: 16px; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); }
+        .service-card p { color: var(--secondary-text); line-height: 1.6; }
+        .service-card.strikethrough { opacity: 0.5; }
+        .service-card.strikethrough h3 { text-decoration: line-through; text-decoration-thickness: 1px; }
+        .service-card.strikethrough:hover { transform: none; border-color: var(--border-color); }
+        .service-card.golden { position: relative; border: 1px solid #FFD70020; background-color: #FFD70010; }
+        .service-card.golden:hover { transform: translateY(-10px); border-color: #FFD700; }
+        .service-card .card-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+        /* СЕКЦИЯ "ЦЕНЫ" */
+        .pricing-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; }
+        .pricing-table th, .pricing-table td { padding: 1.5rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .pricing-table th { font-size: 1.2rem; color: var(--secondary-text); }
+        .pricing-table .price { font-weight: 700; font-size: 1.5rem; color: var(--accent-color); }
+        .pricing-table .note { font-size: 0.9rem; color: var(--secondary-text); }
+
+        /* ФОРМА ЗАКАЗА */
         #order-form { background-color: var(--card-bg); padding: 3rem; border-radius: 16px; max-width: 800px; margin: 0 auto; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; color: var(--secondary-text); }
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 1rem; background-color: var(--bg-color); border: 1px solid var(--border-color);
-            border-radius: 8px; color: var(--text-color); font-size: 1rem; font-family: 'Inter', sans-serif;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 2px solid var(--link-color); border-color: var(--link-color); }
+        .file-upload-wrapper { position: relative; }
+        .file-upload-label { display: inline-block; padding: 1rem 1.5rem; background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color); border-radius: 8px; cursor: pointer; }
+        #file-upload { display: none; }
+        #file-name { margin-top: 0.5rem; color: var(--secondary-text); }
+        .honeypot { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }
         .submit-button { width: 100%; background-color: var(--accent-color); color: var(--bg-color); border: none; padding: 1.2rem; font-size: 1.1rem; font-weight: 700; cursor: pointer; border-radius: 8px; transition: opacity 0.3s ease; }
         .submit-button:hover { opacity: 0.8; }
 
         /* КОНТАКТЫ */
-        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; grid-auto-flow: row;}
         .contact-item h3 { font-size: 1.2rem; color: var(--secondary-text); margin-bottom: 0.5rem; font-weight: 300; }
         .contact-item p, .contact-item a { font-size: 1.1rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
         .contact-item a:hover { color: var(--link-color); }
 
-        footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--border-color); color: var(--secondary-text); }
-
-        /* ФОНОВЫЕ КРУГИ */
-        .ambient-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -1; pointer-events: none; }
-        .blob-wrapper { position: absolute; transition: transform 0.1s ease-out; }
-        .wrapper-1 { top: -10%; left: -10%; } .wrapper-2 { top: 40%; right: -20%; } .wrapper-3 { bottom: -15%; left: 15%; }
-        .blob { border-radius: 50%; filter: blur(120px); opacity: 0.35; }
-        .blob-1 { width: 600px; height: 600px; background: #ff7eb3; transform-origin: 45% 55%; animation: breatheAndSpin 25s infinite ease-in-out alternate; }
-        .blob-2 { width: 800px; height: 800px; background: #7eb3ff; transform-origin: 55% 45%; animation: breatheAndSpin 30s infinite ease-in-out alternate-reverse; }
-        .blob-3 { width: 500px; height: 500px; background: #b3ff7e; transform-origin: 40% 60%; animation: breatheAndSpin 22s infinite ease-in-out alternate; }
-        @keyframes breatheAndSpin {
-            0% { transform: scale(0.9) rotate(0deg) translate(0px, 0px); }
-            50% { transform: scale(1.1) rotate(180deg) translate(30px, -30px); }
-            100% { transform: scale(0.9) rotate(360deg) translate(-30px, 30px); }
+        /* СЕКЦИЯ "ОТЗЫВЫ" */
+        .reviews-card { 
+            background-color: var(--card-bg); 
+            padding: 3rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem; /* Отступ до ссылки Авито */
         }
 
+        .reviews-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            width: 100%;
+            max-width: 700px;
+            flex-wrap: wrap; /* Для мобильных экранов */
+        }
+
+        /* Левая часть - Итог */
+        .reviews-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .average-rating {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+
+        .summary-stars { 
+            display: flex; 
+            gap: 0.3rem; 
+            margin-bottom: 0.5rem; 
+        }
+
+        .summary-stars .star {
+            width: 24px;
+            height: 24px;
+            color: var(--star-color);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .total-reviews {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            font-weight: 400;
+        }
+
+        /* Правая часть - Графики */
+        .reviews-bars {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-width: 280px;
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-stars {
+            display: flex;
+            gap: 0.15rem;
+            width: 75px; /* Фиксированная ширина для ровного края шкал */
+            justify-content: flex-end;
+        }
+
+        .bar-stars .star {
+            width: 14px;
+            height: 14px;
+            color: var(--star-color);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .bar-stars .star.empty {
+            color: var(--border-color); /* Серые звёзды */
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: var(--secondary-text); /* Заполненная часть шкалы */
+            border-radius: 4px;
+        }
+
+        .bar-count {
+            width: 20px;
+            text-align: right;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .avito-link { 
+            color: var(--link-color); 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 1.2rem; 
+            transition: opacity 0.3s ease;
+        }
+        
+        .avito-link:hover {
+            opacity: 0.8;
+        }
+
+        @media screen and (max-width: 600px) {
+            .reviews-layout {
+                gap: 2rem;
+                flex-direction: column;
+            }
+            .bar-stars {
+                width: auto;
+            }
+        }
+
+
+        /* ПОДВАЛ */
+        footer { text-align: center; padding: 4rem 0; border-top: 1px solid var(--border-color); color: var(--secondary-text); }
+
         /* АДАПТИВНОСТЬ */
-        @media screen and (max-width: 950px) { .nav-links { display: none; } }
-        @media screen and (max-width: 768px) { .theme-switcher { top: 1.5rem; right: 1.5rem; } }
+        @media screen and (max-width: 768px) {
+            .nav-links { display: none; }
+            .theme-switcher { top: 1.5rem; right: 1.5rem; }
+        }
+
+        /* При 1450px и меньше */
+        @media (max-width: 1450px) {
+          .nav {
+            justify-content: flex-start;
+          }
+        }
+
+        /* При 850px и меньше */
+        @media (max-width: 950px) {
+          .nav-links {
+            display: none;
+          }
+        }
+
+/* СТИЛИ ДЛЯ РАЗДЕЛЕННОЙ СЕКЦИИ */
+.split-section-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.split-section-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Расстояние между двумя карточками слева */
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 992px) {
+    .split-section-container {
+        grid-template-columns: 1fr; /* Колонки встают друг под друга */
+    }
+}
+
+/* Фиксированный контейнер на весь экран для фоновых кругов */
+.ambient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Обертки отвечают за начальную позицию на экране */
+.blob-wrapper {
+    position: absolute;
+    transition: transform 0.1s ease-out; /* Плавность для JS-скролла */
+}
+
+.wrapper-1 { top: -10%; left: -10%; }
+.wrapper-2 { top: 40%; right: -20%; }
+.wrapper-3 { bottom: -15%; left: 15%; }
+
+/* Сами круги отвечают за цвет, размытие и "дыхание" */
+.blob {
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+/* Индивидуальные настройки: смещенный центр делает вращение "орбитальным" */
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: #ff7eb3;
+    transform-origin: 45% 55%; 
+    animation: breatheAndSpin 25s infinite ease-in-out alternate;
+}
+
+.blob-2 {
+    width: 800px;
+    height: 800px;
+    background: #7eb3ff;
+    transform-origin: 55% 45%;
+    animation: breatheAndSpin 30s infinite ease-in-out alternate-reverse;
+}
+
+.blob-3 {
+    width: 500px;
+    height: 500px;
+    background: #b3ff7e;
+    transform-origin: 40% 60%;
+    animation: breatheAndSpin 22s infinite ease-in-out alternate;
+}
+
+/* Ключевые кадры: Дыхание (scale), движение по кругу (rotate + translate) */
+@keyframes breatheAndSpin {
+    0% {
+        transform: scale(0.9) rotate(0deg) translate(0px, 0px);
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg) translate(30px, -30px);
+    }
+    100% {
+        transform: scale(0.9) rotate(360deg) translate(-30px, 30px);
+    }
+}
+
+/* ========================================== */
+/* STACKING CARDS WRAPPER */
+/* ========================================== */
+.cards-stack-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Отступ между карточками до того, как они слипнутся */
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* Общий стиль карточки (Добавлена магия переменных) */
+.stack-card {
+    position: sticky;
+    background: var(--card-bg);
+    /* Убираем обычный бордер, мы нарисуем светящийся! */
+    border: none; 
+    border-radius: 30px;
+    padding: 4rem;
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.05);
+    transform-origin: top center;
+    min-height: 450px; 
+    display: flex;
+    align-items: center;
+    /* Важно для работы подсветки: */
+    position: sticky;
+    overflow: hidden;
+    z-index: 1; /* Базовый Z-index */
+    
+    /* Дефолтные координаты курсора (за пределами экрана) */
+    --mouse-x: -1000px;
+    --mouse-y: -1000px;
+}
+
+/* ========================================== */
+/* ЭФФЕКТ LINEAR GLOW BORDER (УМНАЯ РАМКА) */
+/* ========================================== */
+
+/* 1. Светящаяся рамка, которая бегает за курсором */
+.stack-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Толщина рамки */
+    /* Рисуем градиент на месте курсора */
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y), 
+        var(--link-color), /* Цвет свечения (твой акцентный) */
+        transparent 40%
+    );
+    /* Хитрый хак с масками, чтобы градиент был виден ТОЛЬКО на рамке (padding) */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 2. Мягкий внутренний блик на самом фоне карточки */
+.stack-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(138, 77, 255, 0.04), /* Очень легкий свет внутри */
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Включаем подсветку при наведении */
+.stack-card:hover::before,
+.stack-card:hover::after {
+    opacity: 1;
+}
+
+/* Для секретной карточки делаем свечение ярче */
+#stack-5::after {
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(138, 77, 255, 0.15), /* Ярче, так как фон черный */
+        transparent 50%
+    );
+}
+
+/* ========================================== */
+/* МИКРО-АНИМАЦИИ ВНУТРЕННЕГО КОНТЕНТА */
+/* ========================================== */
+
+/* Интерактив таблицы (B2B) */
+.modern-table tr {
+    transition: background 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.modern-table tr:hover {
+    background: rgba(138, 77, 255, 0.08); /* Легкий фон */
+    transform: translateX(10px); /* Строка плавно отъезжает вправо, приглашая прочитать */
+    cursor: default;
+}
+
+/* Интерактив облака тегов (Бартер) */
+.tag {
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+}
+.tag:hover {
+    background: var(--link-color);
+    color: #fff;
+    border-color: var(--link-color);
+    transform: translateY(-5px) scale(1.05); /* Тег подпрыгивает и увеличивается */
+    box-shadow: 0 10px 20px rgba(138, 77, 255, 0.3);
+}
+
+/* Интерактив плашки студентов */
+.highlight-box {
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+.card-students:hover .highlight-box {
+    transform: scale(1.02) rotate(1deg); /* При наведении на саму карточку, плашка внутри слегка наклоняется */
+    box-shadow: 0 15px 35px rgba(138, 77, 255, 0.15);
+    border-color: rgba(138, 77, 255, 0.5);
+}
+
+/* Настройки Z-index для лесенки (НЕ УДАЛЯТЬ) */
+#stack-1 { top: 120px; z-index: 1; }
+#stack-2 { top: 140px; z-index: 2; }
+#stack-3 { top: 160px; z-index: 3; }
+#stack-4 { top: 180px; z-index: 4; }
+#stack-5 { 
+    top: 200px; 
+    z-index: 5; 
+    background: #0a0a0a; 
+}
+
+
+/* Задаем разные уровни залипания (top), чтобы получилась лесенка (папки) */
+#stack-1 { top: 120px; z-index: 1; }
+#stack-2 { top: 140px; z-index: 2; }
+#stack-3 { top: 160px; z-index: 3; }
+#stack-4 { top: 180px; z-index: 4; }
+#stack-5 { 
+    top: 200px; 
+    z-index: 5; 
+    background: #0a0a0a; /* Темный фон для секретной */
+    border-color: var(--link-color); 
+    box-shadow: 0 -20px 50px rgba(138, 77, 255, 0.15);
+}
+
+/* Внутренняя сетка карточки (текст слева, визуал справа) */
+.stack-card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    width: 100%;
+    align-items: center;
+}
+
+/* Типографика */
+.stack-text h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.stack-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
+}
+.secret-text h3 { color: #fff; }
+.secret-text p { color: rgba(255, 255, 255, 0.8); }
+
+/* Кнопки */
+.stack-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--link-color);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.stack-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(138, 77, 255, 0.3);
+}
+.secret-btn {
+    background: #fff;
+    color: #000;
+}
+
+/* ========================================== */
+/* ВИЗУАЛЬНЫЕ БЛОКИ ВНУТРИ КАРТОЧЕК */
+/* ========================================== */
+
+/* Современная таблица для B2B */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.modern-table th, .modern-table td {
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.modern-table th {
+    background: rgba(0, 0, 0, 0.02);
+    color: var(--secondary-text);
+    font-weight: 500;
+}
+.modern-table td {
+    color: var(--text-color);
+    font-weight: 600;
+}
+.modern-table tr:last-child td { border-bottom: none; }
+
+/* Плашка для студентов */
+.highlight-box {
+    background: rgba(138, 77, 255, 0.1);
+    border: 1px dashed var(--link-color);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+}
+.highlight-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.highlight-box h4 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-color); }
+.highlight-box p { color: var(--secondary-text); margin: 0; }
+
+/* Облако тегов для бартера */
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.tag {
+    padding: 0.8rem 1.5rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Адаптив (мобилки) */
+@media (max-width: 900px) {
+    .stack-card { padding: 2rem; min-height: auto; }
+    .stack-card-content { grid-template-columns: 1fr; gap: 2rem; }
+    /* На мобилках отключаем лесенку, делаем один уровень */
+    #stack-1, #stack-2, #stack-3, #stack-4, #stack-5 { top: 80px; } 
+}
+
+
     </style>
 </head>
-<body>
+<body class="light-theme">
 
 <div class="ambient-background">
-    <div class="blob-wrapper wrapper-1"><div class="blob blob-1"></div></div>
-    <div class="blob-wrapper wrapper-2"><div class="blob blob-2"></div></div>
-    <div class="blob-wrapper wrapper-3"><div class="blob blob-3"></div></div>
+    <!-- Первый круг -->
+    <div class="blob-wrapper wrapper-1">
+        <div class="blob blob-1"></div>
+    </div>
+    <!-- Второй круг -->
+    <div class="blob-wrapper wrapper-2">
+        <div class="blob blob-2"></div>
+    </div>
+    <!-- Третий круг -->
+    <div class="blob-wrapper wrapper-3">
+        <div class="blob blob-3"></div>
+    </div>
 </div>
 
     <div class="theme-switch-wrapper">
@@ -260,190 +813,205 @@
     <header>
         <div class="container">
             <nav class="nav">
-                <!-- Логотип ведет на главную страницу -->
-                <a href="/index.html" class="logo">a4ch.ru</a>
+                <!-- 1. Логотип теперь работает как кнопка "Наверх" без изменения URL -->
+                <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">a4ch.ru</a>
+                
+                <!-- 2.2 Новое верхнее меню для перехода на другие страницы -->
                 <div class="nav-links">
                     <a href="/index.html">Старт</a>
-                    <a href="/b2b.html" class="active-page">Для бизнеса</a>
+                    <a href="/faq.html">Частые вопросы</a>
+                    <a href="/b2b.html" class="active-page">Сотрудничество</a>
+                    <!-- <a href="">Витрина 3D товаров</a> -->
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- <nav class="side-nav">
-        <a href="#b2b-hero" class="side-nav-link">Приветствие</a>
-        <a href="#b2b-benefits" class="side-nav-link">Подход к работе</a>
-        <a href="#b2b-process" class="side-nav-link">Процесс</a>
-        <a href="#b2b-order" class="side-nav-link">Оформить заявку</a>
-        <a href="#contacts" class="side-nav-link">Контакты</a>
-    </nav> -->
+<!-- СЕКЦИЯ СОТРУДНИЧЕСТВА: STACKING CARDS -->
+<section id="partnership" class="section" style="padding-top: 150px; padding-bottom: 100px;">
+    <div class="container">
+        <h2 class="section-title">Форматы сотрудничества</h2>
+        <p class="section-subtitle">Листайте вниз, чтобы увидеть все варианты. Каждое предложение уникально.</p>
 
-    <main>
-        <section id="b2b-hero" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">САЙТ В РАЗРАБОТКЕ</h1>
-                    <p class="hero-subtitle">Надёжная чёрно-белая печать технической документации, инструкций и бланков. Выступаю в роли вашего внутреннего QA-инженера: проверяю верстку, обращаю внимание на смысловые ошибки и вношу мелкие правки. Никакого конвейерного безразличия по лучшему ценновому предложению.</p>
-                    <!-- <a href="#b2b-order" class="cta-button" id="hero-cta-button">Обсудить задачу</a> -->
-                </div>
-            </div>
-        </section>
-
-        <!-- <section id="b2b-benefits" class="section" style="border-top: none;">
-            <div class="container">
-                <h2 class="section-title">Сервис, который снимает головную боль</h2>
-                <p class="section-subtitle">Обычно типографии просто жмут кнопку «печать». Я отношусь к вашим материалам так, словно это мой собственный бизнес.</p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Бесплатный префлайт</h3>
-                        <p>Ни один файл не уходит в печать вслепую. Досконально проверяю вылеты, поля, шрифты и отступы. Технический брак будет обнаружен до того, как испортит тираж.</p>
+        <div class="cards-stack-wrapper">
+            
+            <!-- Карточка 1: B2B -->
+            <div class="stack-card card-b2b" id="stack-1">
+                <div class="stack-card-content">
+                    <div class="stack-text">
+                        <h3>🏢 Корпоративным клиентам</h3>
+                        <p>Регулярно печатаете акты, договоры и накладные? Забудьте про очереди в копицентрах и переплаты за аренду чужих офисов. Я заберу вашу рутину на себя.</p>
+                        <a href="#contacts" class="stack-btn">Запросить прайс</a>
                     </div>
-                    <div class="service-card">
-                        <h3>Смысловой аудит</h3>
-                        <p>Я читаю то, что печатаю. Если глаз зацепится за опечатку, сбитую логику или кривую формулировку — я обязательно сообщу об этом и предложу вариант исправления.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Бесплатные правки</h3>
-                        <p>Съехала верстка? Забыли дотянуть фон или обновить логотип? Не буду гонять вас обратно к дизайнеру. По согласованию сам внесу мелкие правки в исходник.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Документы и ЭДО</h3>
-                        <p>Работаю официально. Предоставляю все закрывающие документы, чеки и акты. Поддерживаю оплату по счету. Ваша бухгалтерия будет довольна.</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section id="b2b-process" class="section">
-            <div class="container">
-                <h2 class="section-title">Как строится работа</h2>
-                <p class="section-subtitle">Максимально плотный контакт на старте и автономная работа на этапе производства.</p>
-                <div class="how-it-works-grid">
-                    <div class="step"> 
-                        <div class="step-number">01</div> 
-                        <h3>Оценка и аудит</h3> 
-                        <p>Вы присылаете задачу. Я проверяю макеты на пригодность к печати, смотрю тексты и называю точные сроки и стоимость.</p> 
-                    </div>
-                    <div class="step"> 
-                        <div class="step-number">02</div> 
-                        <h3>Тестовый отпечаток</h3> 
-                        <p>Если в макете много полутонов или сложной графики, делаю бесплатную пробу нескольких страниц, чтобы вы были уверены в результате.</p> 
-                    </div>
-                    <div class="step"> 
-                        <div class="step-number">03</div> 
-                        <h3>Тираж и передача</h3> 
-                        <p>Печатаю заказ точно в оговоренный срок. Выдаю закрывающие документы. Встречаемся для передачи готового тиража без очередей.</p> 
+                    <div class="stack-visual">
+                        <!-- Заменили маркированный список на стильную HTML-таблицу -->
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>Условие</th>
+                                    <th>Мой сервис</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Оформление</td>
+                                    <td>Договор, чеки (НПД)</td>
+                                </tr>
+                                <tr>
+                                    <td>Сроки</td>
+                                    <td>Приоритет, включая ночную печать</td>
+                                </tr>
+                                <tr>
+                                    <td>Логистика</td>
+                                    <td>Доставка от 500₽ или самовывоз</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </section> -->
 
-        <!-- <section id="b2b-order" class="section">
-            <div class="container">
-                <h2 class="section-title">Связаться со мной</h2>
-                <p class="section-subtitle">Опишите задачу: что печатаем, примерный объем и сроки. Я отвечу вам максимально оперативно.</p>
-                
-                <form id="order-form">
-                    <div class="form-group">
-                        <label for="company">Название компании или ваше имя</label>
-                        <input type="text" id="company" name="company" required>
+            <!-- Карточка 2: Студентам -->
+            <div class="stack-card card-students" id="stack-2">
+                <div class="stack-card-content">
+                    <div class="stack-text">
+                        <h3>🎓 Студсоветам и старостам</h3>
+                        <p>Вы управляете потоком голодных до печати студентов, которым вечно нужно распечатать курсач в последнюю ночь. Давайте на этом заработаем.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="contact">Email, Telegram или номер телефона</label>
-                        <input type="text" id="contact" name="contact" required>
+                    <div class="stack-visual visual-box">
+                        <div class="highlight-box">
+                            <span class="highlight-icon">💸</span>
+                            <h4>Win-Win схема</h4>
+                            <p>Приводите поток печататься ко мне. Взамен вы получаете <strong>бесплатную печать</strong> для себя или <strong>% кэшбека</strong> с каждого заказа вашей группы.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="comments">Описание задачи (тираж, сроки, необходимость выставления счета)</label>
-                        <textarea id="comments" name="comments" rows="5" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <p style="color: var(--secondary-text); font-size: 0.9rem; text-align: center; margin-bottom: 1rem;">
-                            После нажатия откроется ваша почтовая программа.<br>К письму можно будет прикрепить файлы и реквизиты.
-                        </p>
-                        <button type="submit" class="submit-button">Создать письмо для заявки</button>
-                    </div>
-                </form>
-            </div>
-        </section> -->
-
-        <!-- <section id="contacts" class="section">
-            <div class="container">
-                <h2 class="section-title">Контакты и самовывоз</h2>
-                <p class="section-subtitle">Открыт к бесценному общению.<br>Кликабельно!</p>
-                <div class="contacts-grid">
-                    <div class="contact-item"><h3>Адрес</h3><p><a href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.304537%2C59.958283&mode=routes&rtext=~59.958243%2C30.304071&rtt=mt&ruri=~&z=19" target="_blank">ул. Малая Пушкарская, д. 5</a></p></div>
-                    <div class="contact-item"><h3>Телефон</h3><p><a href="tel:+79117294090">+7 (911) 729-40-90</a></p></div>
-                    <div class="contact-item"><h3>Telegram</h3><p><a href="https://t.me/chikulev" target="_blank">@Chikulev</a></p></div>
-                    <div class="contact-item"><h3>Email</h3><p><a href="mailto:chikulev@mail.ru">chikulev@mail.ru</a></p></div>
                 </div>
             </div>
-        </section> -->
+
+            <!-- Карточка 3: Бартер -->
+            <div class="stack-card card-barter" id="stack-3">
+                <div class="stack-card-content">
+                    <div class="stack-text">
+                        <h3>🤝 Бартер (Эквивалентный обмен)</h3>
+                        <p>Деньги — не единственный способ расчета. Я обожаю нетворкинг и работу с локальным бизнесом.</p>
+                        <p>Делаете классный дизайн? Владеете кофейней? Собираете мебель? Я готов печатать для вашего бизнеса в обмен на ваши товары или услуги. Предлагайте!</p>
+                    </div>
+                    <div class="stack-visual">
+                        <div class="tags-cloud">
+                            <span class="tag">Дизайн</span>
+                            <span class="tag">Кофе</span>
+                            <span class="tag">Реклама</span>
+                            <span class="tag">Услуги</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 4: Аутсорс -->
+            <div class="stack-card card-outsource" id="stack-4">
+                <div class="stack-card-content">
+                    <div class="stack-text">
+                        <h3>🖨️ Аутсорс для типографий</h3>
+                        <p>Сезон, горят дедлайны, а ваши машины не справляются с потоком черновой ч/б печати? Не отдавайте клиентов конкурентам.</p>
+                        <p>Скидывайте объемы мне. Отдаю заказы по оптовой цене "для своих", чтобы вы могли накрутить свою маржу.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 5: Секретный оффер -->
+            <div class="stack-card card-secret" id="stack-5">
+                <div class="stack-card-content">
+                    <div class="stack-text secret-text">
+                        <h3>Скрытая возможность 🕵️‍♂️</h3>
+                        <p>Ищу партнера с проходной локацией (кофейня, антикафе, пункт выдачи).</p>
+                        <p>У меня есть оборудование, прямые руки и настроенный технический процесс. У вас — место. Давайте поставим стильную точку самообслуживания и будем делить прибыль <strong>50/50</strong>. Без вложений с вашей стороны.</p>
+                        <a href="#contacts" class="stack-btn secret-btn">Обсудить идею</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contacts" class="section">
+    <div class="container">
+        
+        <h2 class="section-title">Контакты и самовывоз</h2>
+        <p class="section-subtitle">Открыт к бесценному общению.<br>Кликабельно!</p>
+
+        <div class="contacts-grid">
+            <div class="contact-item"><h3>Адрес</h3><p><a href="https://yandex.ru/maps/2/saint-petersburg/?ll=30.304537%2C59.958283&mode=routes&rtext=~59.958243%2C30.304071&rtt=mt&ruri=~&z=19" target="_blank">ул. Малая Пушкарская, д. 5</a></p></div>
+            <div class="contact-item"><h3>Телефон</h3><p><a href="tel:+79117294090">+7 (911) 729-40-90</a></p></div>
+            <div class="contact-item"><h3>Telegram</h3><p><a href="https://t.me/chikulev" target="_blank">@Chikulev</a></p></div>
+            <div class="contact-item"><h3>Email</h3><p><a href="mailto:chikulev@mail.ru">chikulev@mail.ru</a></p></div>
+        </div>
+
+        <!-- БЛОК С ИЗОБРАЖЕНИЕМ -->
+        <!-- <div class="contact-image-wrapper">
+            <img src="image_1775516243076359.png" alt="a4ch.ru печать на Петроградке">
+        </div> -->
+
+    </div>
+</section>
+
     </main>
 
     <footer style="border-top: none;">
         <div class="container">
-            <p>© 2026 a4ch.ru • Все права защищены, всё плохое осуждаемо.</p>
-            <p style="margin-top: 10px;">Самозанятый, Чикулёв Дмитрий • г. Санкт-Петербург</p>
+            <p>© 2026 a4ch.ru • Все права защищены, всё плохое осуждаемо.</p><p style="margin-top: 10px;">Самозанятый, Чикулёв Дмитрий • г. Санкт-Петербург</p>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Анимация блика на кнопке
-            const heroCtaButton = document.querySelector('#hero-cta-button');
-            if (heroCtaButton) {
-              heroCtaButton.addEventListener('mousemove', (e) => {
-                const rect = heroCtaButton.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                heroCtaButton.style.setProperty('--x', `${x}px`);
-                heroCtaButton.style.setProperty('--y', `${y}px`);
-              });
-            }
+        const heroCtaButton = document.querySelector('#hero-cta-button');
+
+if (heroCtaButton) {
+  heroCtaButton.addEventListener('mousemove', (e) => {
+    const rect = heroCtaButton.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    heroCtaButton.style.setProperty('--x', `${x}px`);
+    heroCtaButton.style.setProperty('--y', `${y}px`);
+  });
+}
+        
+document.addEventListener('DOMContentLoaded', () => {
+    // --- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // ✅ ВОЗВРАЩАЕМ проверку для сохранения темы при релоаде
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        // ✅ Toggle между light И dark одновременно
+        body.classList.toggle('light-theme');
+        body.classList.toggle('dark-theme');
+        
+        // ✅ Сохраняем правильно
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
             
-            // Переключатель темы
-            const themeToggle = document.getElementById('theme-toggle');
-            const body = document.body;
-            if (localStorage.getItem('theme') === 'light') { body.classList.add('light-theme'); themeToggle.checked = true; }
-            themeToggle.addEventListener('click', () => {
-                body.classList.toggle('light-theme');
-                localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
-            });
+            // --- АНИМАЦИИ ---
+            gsap.registerPlugin(ScrollTrigger, Draggable);
 
-            // Логика формы (mailto)
-            const orderForm = document.getElementById('order-form');
-            if(orderForm) {
-                orderForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const company = document.getElementById('company').value;
-                    const contact = document.getElementById('contact').value;
-                    const comments = document.getElementById('comments').value;
-
-                    const subject = `B2B Заявка с сайта a4ch.ru от ${company}`;
-                    const bodyText = `
-Здравствуйте! Это заявка от юридического лица / бизнеса с сайта a4ch.ru.
-
-Компания / Имя: ${company}
-Контакт: ${contact}
-
-Задача:
-${comments}
-
----
-{{{Пожалуйста, прикрепите файлы для печати и реквизиты (если нужен счет) к этому письму}}}
-                    `;
-                    const mailtoLink = `mailto:chikulev@mail.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-                    window.location.href = mailtoLink;
-                });
-            }
-
-            // Анимации GSAP
-            gsap.registerPlugin(ScrollTrigger);
-
+            // Анимация заголовка
             const title = document.querySelector('.hero-title');
             if (title) {
                 const chars = title.textContent.split('');
@@ -458,12 +1026,23 @@ ${comments}
             }
             
             gsap.from('.hero-subtitle, .cta-button', {
-              delay: 0.5, y: 20, opacity: 0, duration: 0.8, ease: 'power2.out', stagger: 0.2
+              delay: 0.5,
+              y: 20,
+              opacity: 0,
+              duration: 0.8,
+              ease: 'power2.out',
+              stagger: 0.2
             });
-            gsap.to('.cta-button', { opacity: 1, duration: 0.1 });
             
+            // или явно дойти до opacity: 1
+            gsap.to('.cta-button', {
+              opacity: 1,
+              duration: 0.1
+            });
+            
+            // Анимация появления секций
             gsap.utils.toArray('.section').forEach(section => {
-                const elemsToAnimate = section.querySelectorAll(".section-title, .section-subtitle, .service-card, .step, #order-form, .contact-item");
+                const elemsToAnimate = section.querySelectorAll(".section-title, .section-subtitle, .service-card, .step, .pricing-table, #order-form, .contact-item, .reviews-card");
                 if (elemsToAnimate.length > 0) {
                     gsap.from(elemsToAnimate, {
                         scrollTrigger: { trigger: section, start: "top 85%", toggleActions: "play none none none" },
@@ -472,36 +1051,141 @@ ${comments}
                 }
             });
 
-            // Scroll Spy для бокового меню
-            const sections = document.querySelectorAll('section');
-            const sideNavLinks = document.querySelectorAll('.side-nav-link');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.8 };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        sideNavLinks.forEach(link => link.classList.remove('active'));
-                        const activeId = entry.target.getAttribute('id');
-                        const activeLink = document.querySelector(`.side-nav-link[href="#${activeId}"]`);
-                        if (activeLink) activeLink.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => { if (section.id) observer.observe(section); });
         });
 
-        // Параллакс фоновых кругов
-        document.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const wrapper1 = document.querySelector('.wrapper-1');
-            const wrapper2 = document.querySelector('.wrapper-2');
-            const wrapper3 = document.querySelector('.wrapper-3');
 
-            if (wrapper1) wrapper1.style.transform = `translateY(${scrollY * 0.15}px) translateX(${scrollY * 0.05}px)`;
-            if (wrapper2) wrapper2.style.transform = `translateY(${scrollY * -0.1}px) translateX(${scrollY * -0.08}px)`;
-            if (wrapper3) wrapper3.style.transform = `translateY(${scrollY * 0.08}px) translateX(${scrollY * -0.12}px)`;
-        });
+// ==========================================
+// 2. 3D-КАРТОЧКА И МАГНИТНАЯ КНОПКА (Vanilla JS)
+// ==========================================
+const card = document.getElementById('tilt-card');
+const glow = document.getElementById('card-glow');
+const btn = document.getElementById('magnetic-btn');
+
+if (card && btn) {
+    // 3D эффект карточки и блика
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Передвигаем блик
+        glow.style.left = x + 'px';
+        glow.style.top = y + 'px';
+
+        // Вычисляем угол наклона (максимум 10 градусов)
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        // Возвращаем в исходное положение
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        btn.style.transform = 'translate(0px, 0px)';
+    });
+
+    // Магнитный эффект для кнопки
+    btn.addEventListener('mousemove', (e) => {
+        const btnRect = btn.getBoundingClientRect();
+        // Центр кнопки
+        const btnX = btnRect.left + btnRect.width / 2;
+        const btnY = btnRect.top + btnRect.height / 2;
+        
+        // Сила магнита (чем больше делитель, тем слабее притяжение)
+        const xPos = (e.clientX - btnX) * 0.3;
+        const yPos = (e.clientY - btnY) * 0.3;
+        
+        btn.style.transform = `translate(${xPos}px, ${yPos}px)`;
+    });
+}
+
+// ==========================================
+// 1. АНИМАЦИЯ ПОЯВЛЕНИЯ BENTO GRID (GSAP)
+// ==========================================
+gsap.from('.bento-item', {
+    scrollTrigger: {
+        trigger: ".bento-grid",
+        start: "top 85%",
+    },
+    y: 50,          // Выезжают снизу
+    scale: 0.95,    // Слегка увеличиваются
+    opacity: 0,     // Из прозрачности
+    duration: 0.6,
+    stagger: 0.15,  // Задержка между карточками (эффект лесенки)
+    ease: "back.out(1.2)" // Небольшая пружинка в конце
+});
+
+// ==========================================
+// АНИМАЦИЯ ЗАТЕМНЕНИЯ КАРТОЧЕК ПРИ СКРОЛЛЕ (GSAP)
+// ==========================================
+// Собираем все карточки из стека
+const stackCards = gsap.utils.toArray('.stack-card');
+
+stackCards.forEach((card, index) => {
+    // Последнюю карточку не затемняем (поверх неё ничего не наезжает)
+    if (index === stackCards.length - 1) return;
+
+    // Карточка, которая едет СЛЕДУЮЩЕЙ за текущей
+    const nextCard = stackCards[index + 1];
+
+    gsap.to(card, {
+        scale: 0.95,       // Слегка уменьшаем (эффект отдаления)
+        opacity: 0.96,      // Затемняем
+        scrollTrigger: {
+            trigger: nextCard,     // Анимация начинается, когда следующая карточка доезжает до триггера
+            start: "top bottom",   // Когда верх следующей карточки появляется внизу экрана
+            end: "top " + (120 + (index+1)*20), // Заканчивается, когда следующая карточка "прилипает"
+            scrub: true,           // Анимация привязана к колесу мыши (плавно туда-сюда)
+        }
+    });
+});
+
+// ==========================================
+// ЛОГИКА УМНОЙ ПОДСВЕТКИ РАМОК (LINEAR GLOW)
+// ==========================================
+const glowCards = document.querySelectorAll('.stack-card');
+
+glowCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        // Вычисляем координаты мыши относительно конкретной карточки
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Передаем координаты в CSS-переменные
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+
     </script>
+    
+    <script>
+document.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Находим обертки, а не сами круги
+    const wrapper1 = document.querySelector('.wrapper-1');
+    const wrapper2 = document.querySelector('.wrapper-2');
+    const wrapper3 = document.querySelector('.wrapper-3');
+
+    // Эффект параллакса (движение при скролле)
+    if (wrapper1) {
+        wrapper1.style.transform = `translateY(${scrollY * 0.15}px) translateX(${scrollY * 0.05}px)`;
+    }
+    if (wrapper2) {
+        wrapper2.style.transform = `translateY(${scrollY * -0.1}px) translateX(${scrollY * -0.08}px)`;
+    }
+    if (wrapper3) {
+        wrapper3.style.transform = `translateY(${scrollY * 0.08}px) translateX(${scrollY * -0.12}px)`;
+    }
+});
+    </script>
+    
+
 </body>
 </html>
