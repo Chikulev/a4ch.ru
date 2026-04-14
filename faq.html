@@ -1079,6 +1079,47 @@ body.light-theme .mobile-menu {
     }
 }
 
+/* ========================================== */
+/* СТИЛИ ДЛЯ ЛОГОТИПА В БЕГУЩЕЙ СТРОКЕ */
+/* ========================================== */
+.marquee-logo {
+    /* Высота примерно равна размеру шрифта (3rem), но чуть меньше, 
+       чтобы визуально компенсировать массивность картинки */
+    height: 2.8rem; 
+    /* Такие же отступы слева и справа, как у текста */
+    margin: 0 2rem; 
+    /* Идеальное выравнивание по центру относительно текста */
+    vertical-align: middle; 
+    
+    /* Делаем его слегка приглушенным, как и текст (эффект контура) */
+    opacity: 0.5;
+    filter: grayscale(100%); /* Если лого цветной, делаем его стильным ч/б */
+    
+    /* Плавная анимация при наведении */
+    transition: all 0.3s ease;
+    /* Запрещаем выделять картинку мышкой */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Эффект при наведении (Ховер) */
+/* Логотип загорается либо когда наводим на сам логотип, либо когда останавливаем всю ленту */
+.marquee-logo:hover,
+.marquee-track:hover .marquee-logo {
+    opacity: 1;
+    filter: grayscale(0%); /* Возвращаем родные цвета, если они есть */
+    transform: scale(1.05); /* Слегка выпрыгивает вперед */
+}
+
+/* Мобильная адаптация (уменьшаем логотип пропорционально тексту) */
+@media (max-width: 768px) {
+    .marquee-logo {
+        height: 1.8rem; /* Уменьшаем вслед за шрифтом */
+        margin: 0 1rem;
+    }
+}
+
+
     </style>
 </head>
 <body class="light-theme">
@@ -1302,18 +1343,23 @@ body.light-theme .mobile-menu {
     <div class="marquee-track">
         <!-- Дублируем контент для бесшовной анимации -->
         <div class="marquee-content">
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
         </div>
         <div class="marquee-content">
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
-            <span>a4ch.ru</span>
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
+            <img src="logo_full.svg" alt="A4CH Logo" class="marquee-logo">
         </div>
     </div>
 </div>
